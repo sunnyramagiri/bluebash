@@ -1,0 +1,26 @@
+To create the own Jenkins path 
+---- create the server -----
+---- connect to server -----
+---- install the java in both the server with the same version -------
+---- install jenkins in any one server -----
+
+go to git bash 
+1. Create the new folder.
+      sudo mkdir -p /var/lib/jenkins
+2. Ensure that the Jenkins user.
+      sudo chown -R jenkins:jenkins /var/lib/jenkins
+3. Ensure the permissions allow writing.
+      sudo chmod -R 755 /var/lib/jenkins
+4. Ensure the Jenkins agent.
+     ps -ef | grep agent.jar
+5. Once permissions are fixed, restart the agent or the Jenkins service.
+     sudo systemctl restart jenkins
+     sudo systemctl restart jenkins-agent
+6. Still on node1. 
+    sudo -u jenkins touch /var/lib/jenkins/testfile
+7. If it works, delete the file.
+    sudo rm /var/lib/jenkins/testfile
+8. Once permissions are fixed, restart the agent or the Jenkins service
+    sudo systemctl restart jenkins
+
+

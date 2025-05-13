@@ -1,7 +1,7 @@
 version: '3.8'
 services:
 
-  webserver:
+  web:
     image: tomee
     ports:
       - "7070:8080"

@@ -1,23 +1,16 @@
-# Use the official Node.js 16 image as the base image
-FROM node:16
+# Use an official Node.js image
+FROM node:18
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (or yarn.lock) to the container
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# Install project dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Copy the rest of the app's source code
 COPY . .
 
-# Build the React app
-RUN npm run build
-
-# Expose the port that the app will run on (usually 3000 by default)
+# Expose port and run the app
 EXPOSE 3000
-
-# Start the React app when the container starts
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]

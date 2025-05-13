@@ -9,6 +9,3 @@ services:
       - DB_HOST=mydb
       - DB_USER=sunny
       - DB_PASSWORD=sunny
-    depends_on:
-      - mydb
-
